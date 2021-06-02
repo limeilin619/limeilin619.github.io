@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div input {
+            width: 150px;
+            height: 40px;
+            background-color: cadetblue;
+            font-size: 25px;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        #div1{
+            width: 300px;
+            height: 250px;
+            background-color: cadetblue;
+            margin:100px auto;
+            text-align: center;
+        }
+
+        #count{
+            width: 300px;
+            height: 150px;
+            line-height: 150px;
+            margin: auto;
+            font-size: 36px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="count">
+            <span id="H">00</span>
+            <span id="M">00</span>
+            <span id="S">00</span>
+        </div>
+        <input type="button" id="start" value="开始">
+        <input type="button" id="pause" value="暂停">
+        <input type="button" id="stop" value="结束">
+    </div>
+    <script>
+        var c = 0
+        var z = null
+        
+        //开始
+        document.getElementById("start").onclick = function () {
+            z = setInterval(function() {
+              c++
+              document.getElementById("S").innerHTML = showNum(c % 60);
+              document.getElementById("M").innerHTML = showNum(parseInt(c / 60) % 60);
+              document.getElementById("H").innerHTML = showNum(parseInt(c / 3600));
+            }, 1000)
+        }
+
+        //暂停
+        document.getElementById("pause").onclick = function () {
+            clearInterval(z)
+        }
+
+        //结束
+        document.getElementById("stop").onclick = function () {
+            clearInterval(z)
+            c = 0
+            document.getElementById("S").innerHTML = "00"
+            document.getElementById("M").innerHTML = "00"
+            document.getElementById("H").innerHTML = "00"
+        }
+        function showNum(num) {
+            if (num < 10){
+                return "0" + num;
+            }
+            else{
+                return num
+            }
+        }
+    </script>
+</body>
+</html>
