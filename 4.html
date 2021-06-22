@@ -1,0 +1,31 @@
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>practice 4</title>
+</head>
+
+<body>
+<h1>Practice 4</h1> 
+
+<button onclick="myFunction()">Have a try</button>
+
+<p id="demo1"></p>
+<p id="demo"></p>
+
+<script>
+	var arr=[4,9,16,25];
+	document.getElementById("demo1").innerHTML = "Array：<br>" + arr;
+	var pa = document.getElementById('demo');
+	function myFunction() {
+		arr.forEach((value,idx)=>{ 
+			var node = document.createElement("p");
+			var name = 'demo'+idx.toString();
+			node.id = name;
+			node.innerHTML = 'index'+idx.toString()+'：'+value.toString();
+			pa.appendChild(node);
+		})
+	}
+</script>
+</body>
+</html>

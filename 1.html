@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.lixiaoxia.com/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.lixiaoxia.com/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>practice1</title>
+</head>
+
+<body>
+	<h1>Practice 1</h1> 
+
+<button onclick="myFunction()">Add Something</button>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+
+<script>
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo1").innerHTML = "BEFORE：<br>" + fruits;
+function myFunction() {
+	fruits.push('Lemon');
+	fruits.push('Pinapple');
+	fruits.sort((a,b)=>{
+  		if(a>=b){return -1;}
+  		else{return 1}
+	});
+	document.getElementById("demo2").innerHTML = "AFTER：<br>" + fruits;
+}
+</script>
+</body>
+</html>
